@@ -158,3 +158,54 @@ Lalu, kita unduh file `peta-ekspedisi-amba.pdf`
 ```Bash
 wget --no-check-certificate https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q -O peta-ekspedisi-amba.pdf
 ```
+### Langkah 3
+Kita ambil link tersembunyi dari isi file.
+```Bash
+strings peta-ekspedisi-amba.pdf | grep http
+```
+Maka akan mucul link `https://github.com/pocongcyber77/peta-gunung-kawi.git`
+### Langkah 4
+Kita ambil JSON dari link yang tadi.
+```Bash
+git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
+```
+### Langkah 5
+Kita buat parserkoordinat nya
+```Bash
+micro parserkoordinat.sh
+chmod +x parserkoordinat.sh
+./parserkoordinat.sh
+```
+isi `parserkoordinat.sh`
+```Bash
+#!/bin/bash
+
+awk '
+/"id":/ {
+    gsub(/[",]/,"")
+    id=$2
+}
+
+/"site_name":/ {
+    gsub(/[",]/,"")
+    name=$2
+}
+
+/"coordinates":/ {
+    gsub(/[\[\],]/,"")
+    lon=$2
+    lat=$3
+    print id","name","lat","lon
+}
+' gsxtrack.json > titik-penting.txt
+```
+### Langkah 6
+Kita cek titik pentingnya menggunakan:
+`cat titik-penting.txt`
+output-nya:
+```
+node_001,Titik,-7.920000,112.450000
+node_002,Basecamp,-7.920000,112.468100
+node_003,Gerbang,-7.937960,112.468100
+node_004,Tembok,-7.937960,112.450000
+```
