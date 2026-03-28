@@ -12,20 +12,35 @@ Kita bisa menggunakan *command* ini:
 
 Dari file tersebut kita diminta untuk:
 a) Menghitung Total Jumlah Penumpang.
-b) Menghitung Jumlah Gerbong Kereta
+b) Menghitung Jumlah Gerbong Kereta.
 c) Mencari Siapa Penumpang Tertua dan Berapa Umurnya.
 d) Menghitung Rata-Rata Umur Penumpang.
-e) Menghitung Jumlah Penumpang di Kelas *Business*
+e) Menghitung Jumlah Penumpang di Kelas *Business*.
 
 ### a) Menghitung Total Jumlah Penumpang
 Menggunakan *code* ini untuk menghitung setiap barisnya:
 ```awk
 total++
 ```
-
-Gunakan *code* ini untuk menampilkan outputnya:
+Menggunakan *code* ini untuk menampilkan outputnya:
 ```awk
 if (mode=="a") {
     print "Jumlah seluruh penumpang KANJ adalah " total " orang"
+}
+```
+### b) Menghitung Jumlah Gerbong Kereta
+Menggunakan *code* ini untuk menyimpan gerbon unik.
+```awk
+tmp = $4
+if (tmp != "") {
+    carriage[tmp] = 1
+}
+```
+Menggunakan *code* ini untuk menampilkan outputnya:
+```awk
+else if (mode=="b") {
+    count = 0
+    for (i in carriage) count++
+    print "Jumlah gerbong penumpang KANJ adalah " count
 }
 ```
