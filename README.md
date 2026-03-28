@@ -203,9 +203,9 @@ awk '
 Kita cek titik pentingnya menggunakan:
 `cat titik-penting.txt`
 output-nya:
-```
+`
 node_001,Titik,-7.920000,112.450000
 node_002,Basecamp,-7.920000,112.468100
 node_003,Gerbang,-7.937960,112.468100
 node_004,Tembok,-7.937960,112.450000
-```
+`
