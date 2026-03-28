@@ -216,7 +216,7 @@ micro nemupusaka.sh
 chmod +x nemupusaka.sh
 ./nemupusaka.sh
 ```
-isi `nemupusaka.sh`
+Isi `nemupusaka.sh`
 ```Bash
 #!/bin/bash
 
@@ -236,3 +236,12 @@ echo "Koordinat pusaka: ($lat_mid, $lon_mid)" > posisipusaka.txt
 
 cat posisipusaka.txt
 ```
+### Langkah 7
+Koordinat ditemukan
+```Bash
+cat posisipusaka.txt
+```
+Output-nya:
+`Koordinat pusaka: (-7.92898, 112.45)`
+
+## Soal 3
