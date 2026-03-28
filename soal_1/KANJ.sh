@@ -9,7 +9,15 @@ NR==1 { next }
 {
     total++
 
-    carriage[$4]++
+    for (i=1; i<=NF; i++) {
+        gsub(/\r/, "", $i)
+        gsub(/^[ \t]+|[ \t]+$/, "", $i)
+    }
+
+    tmp = $4
+    if (tmp != "") {
+        carriage[tmp] = 1
+    }
 
     sum_age += $2
 
@@ -28,7 +36,7 @@ END {
         print "Jumlah seluruh penumpang KANJ adalah " total " orang"
     }
     else if (mode=="b") {
-        count=0
+        count = 0
         for (i in carriage) count++
         print "Jumlah gerbong penumpang KANJ adalah " count
     }
