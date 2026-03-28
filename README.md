@@ -203,9 +203,36 @@ awk '
 Kita cek titik pentingnya menggunakan:
 `cat titik-penting.txt`
 output-nya:
-``
+```
 node_001,Titik,-7.920000,112.450000
 node_002,Basecamp,-7.920000,112.468100
 node_003,Gerbang,-7.937960,112.468100
 node_004,Tembok,-7.937960,112.450000
-``
+```
+### Langkah 6
+Kita cari titik tengahnya.
+```Bash
+micro nemupusaka.sh
+chmod +x nemupusaka.sh
+./nemupusaka.sh
+```
+isi `nemupusaka.sh`
+```Bash
+#!/bin/bash
+
+read first < titik-penting.txt
+read last < <(tail -n 1 titik-penting.txt)
+
+lat1=$(echo $first | awk -F, '{print $3}')
+lon1=$(echo $first | awk -F, '{print $4}')
+
+lat2=$(echo $last | awk -F, '{print $3}')
+lon2=$(echo $last | awk -F, '{print $4}')
+
+lat_mid=$(awk "BEGIN {print ($lat1 + $lat2)/2}")
+lon_mid=$(awk "BEGIN {print ($lon1 + $lon2)/2}")
+
+echo "Koordinat pusaka: ($lat_mid, $lon_mid)" > posisipusaka.txt
+
+cat posisipusaka.txt
+```
