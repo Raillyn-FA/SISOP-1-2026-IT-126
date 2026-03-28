@@ -77,6 +77,8 @@ END {
     }
 }
 ```
+Pastikan file KANJ.sh dan passenger.csv berada dalam satu folder
+Gunakan command `awk -f KANJ.sh passenger.csv a/b/c/d/e`
 ### a) Menghitung Total Jumlah Penumpang
 Menggunakan *code* ini untuk menghitung setiap barisnya:
 ```awk
