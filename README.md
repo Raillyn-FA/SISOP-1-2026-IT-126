@@ -4,7 +4,6 @@ Dikerjakan oleh: Rayhan Fadhilah Allayn (5027251126)
 ## Tree Modul1
 <img width="623" height="578" alt="image" src="https://github.com/user-attachments/assets/5126fce5-4a3c-4580-a734-b80d5450946e" />
 
-
 ## Soal 1
 Di soal ini, kita diberikan data-data penumpang kereta dalam bentuk file *csv* bernama passenger.csv yang perlu kita unduh terlebih dahulu melalui sebuah link.
 Kita bisa menggunakan *command* ini:
@@ -144,4 +143,18 @@ Menggunakan *code* ini untuk menampilkan outputnya:
 else if (mode=="e") {
     print "Jumlah penumpang business class ada " business " orang"
 }
+```
+## Soal 2
+Pada soal ini kita diperintahkan untuk mencari sebuah koordinat suatu pusakan peninggalan mendiang paman Mas Amba.
+
+### Langkah 1
+Kita buat terlebih dahulu struktur foldernya.
+```Bash
+mkdir -p soal_2/ekspedisi/peta-gunung-kawi
+cd soal_2/ekspedisi
+```
+### Langkah 2
+Lalu, kita unduh file `peta-ekspedisi-amba.pdf`
+```Bash
+wget --no-check-certificate https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q -O peta-ekspedisi-amba.pdf
 ```
