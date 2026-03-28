@@ -17,3 +17,15 @@ c) Mencari Siapa Penumpang Tertua dan Berapa Umurnya.
 d) Menghitung Rata-Rata Umur Penumpang.
 e) Menghitung Jumlah Penumpang di Kelas *Business*
 
+### a) Menghitung Total Jumlah Penumpang
+Menggunakan *code* ini untuk menghitung setiap barisnya:
+```awk
+total++
+```
+
+Gunakan *code* ini untuk menampilkan outputnya:
+```awk
+if (mode=="a") {
+    print "Jumlah seluruh penumpang KANJ adalah " total " orang"
+}
+```
