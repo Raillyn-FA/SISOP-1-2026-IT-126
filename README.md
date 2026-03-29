@@ -482,3 +482,7 @@ cron_menu() {
 ```
 ### Output:
 ![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0009.jpg)
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0010.jpg)
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0011.jpg)
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0014.jpg)
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0010.jpg)
