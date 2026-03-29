@@ -245,3 +245,77 @@ Output-nya:
 `Koordinat pusaka: (-7.92898, 112.45)`
 
 ## Soal 3
+Di soal ini kita membantu Mas Amba mengelola kos milik pamannya, Mas Amba bertekad menciptakan program manajemen kost berbasis CLI interaktif menggunakan Bash script dan bantuan command `awk`.
+
+Sistem utama yang diinginkan:
+1. Tambah Penghuni
+2. Hapus Penghuni
+3. Tampilkan Penghuni
+4. Update Status
+5. Laporan Keuangan
+6. Kelola Cron
+7. Exit
+
+### Langkah 1
+Kita buat folder dan filenya:
+```Bash
+mkdir -p soal_3/{data,log,rekap,sampah}
+cd soal_3
+touch kost_slebew.sh
+```
+
+### Langkah 2
+Kita buat scriptnya:
+```Bash
+micro kost_slebew.sh
+```
+
+Keterangan script `kost_slebew.sh`:
+
+#### 1. Untuk cek penghuni yang menunggak & cek penghuni yang menunggak.
+```Bash
+check_tagihan() {
+    while IFS=, read -r nama kamar harga status; do
+        if [[ "$status" == "Menunggak" ]]; then
+            echo "[$(date '+%F %T')] TAGIHAN: $nama (Kamar $kamar) - Menunggak Rp$harga" >> "$LOG"
+        fi
+    done < "$DATA"
+}
+
+if [[ "$1" == "--check-tagihan" ]]; then
+    check_tagihan
+    exit
+fi
+```
+#### 2. Untuk menghapus data penghuni.
+```Bash
+hapus() {
+    clear
+    echo "===== HAPUS PENGHUNI ====="
+
+    read -p "Nama: " nama
+
+    if ! grep -iq "^$nama," "$DATA"; then
+        echo "Data tidak ditemukan!"
+        read
+        return
+    fi
+    
+    tanggal=$(date +%F)
+
+    awk -F, -v n="$nama" -v t="$tanggal" '
+    BEGIN {OFS=","}
+    {
+        if (tolower($1)==tolower(n)) {
+            print $0,t >> "'$HISTORY'"
+        } else {
+            print $0
+        }
+    }' "$DATA" > temp.csv
+
+    mv temp.csv "$DATA"
+
+    echo "[✓] Penghuni dihapus & diarsipkan!"
+    read -p "Enter..."
+}
+```
