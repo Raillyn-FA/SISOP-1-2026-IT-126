@@ -144,7 +144,8 @@ else if (mode=="e") {
     print "Jumlah penumpang business class ada " business " orang"
 }
 ```
-### Outputv
+### Output:
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG_20260329_194649.jpg)
 
 ## Soal 2
 Pada soal ini kita diperintahkan untuk mencari sebuah koordinat suatu pusakan peninggalan mendiang paman Mas Amba.
