@@ -144,6 +144,8 @@ else if (mode=="e") {
     print "Jumlah penumpang business class ada " business " orang"
 }
 ```
+### Outputv
+
 ## Soal 2
 Pada soal ini kita diperintahkan untuk mencari sebuah koordinat suatu pusakan peninggalan mendiang paman Mas Amba.
 
