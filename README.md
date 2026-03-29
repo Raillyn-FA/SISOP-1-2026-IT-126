@@ -352,7 +352,7 @@ tampil() {
     read -p "Enter..."
 }
 ```
-#### 4. Untuk memperbarui penghuni kos sudah membayar atau masih menunggak
+#### 4. Untuk memperbarui status penghuni kos sudah membayar atau masih menunggak
 ```Bash
 update() {
     clear
@@ -379,6 +379,32 @@ update() {
     mv temp.csv "$DATA"
 
     echo "[âœ“] Status diperbarui!"
+    read -p "Enter..."
+}
+```
+#### 5. Untuk melihat laporan keuangan terbaru.
+```Bash
+laporan() {
+    clear
+    echo "===== LAPORAN KEUANGAN ====="
+
+    awk -F, '
+    {
+        if ($4=="Aktif") aktif+=$3
+        else tunggak+=$3
+    }
+    END {
+        print "Total pemasukan (Aktif): Rp" aktif
+        print "Total tunggakan        : Rp" tunggak
+        print "Jumlah kamar terisi    : " NR
+        print "\nDaftar menunggak:"
+    }' "$DATA" > "$REKAP"
+
+    awk -F, '$4=="Menunggak" {print "-",$1}' "$DATA" >> "$REKAP"
+
+    cat "$REKAP"
+
+    echo "[âœ“] Laporan disimpan!"
     read -p "Enter..."
 }
 ```
