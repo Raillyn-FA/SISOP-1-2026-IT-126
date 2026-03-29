@@ -408,3 +408,72 @@ laporan() {
     read -p "Enter..."
 }
 ```
+#### 6. Untuk mengelola dan membuat cronjob
+```Bash
+cron_menu() {
+    while true; do
+        clear
+        echo "======================================"
+        echo "        MENU KELOLA CRON"
+        echo "======================================"
+        echo "1. Lihat Cron Job Aktif"
+        echo "2. Daftarkan Cron Job Pengingat"
+        echo "3. Hapus Cron Job Pengingat"
+        echo "4. Kembali"
+        echo "======================================"
+
+        read -p "Pilih [1-4]: " pilihan
+
+        case $pilihan in
+            1)
+                echo ""
+                echo "--- Daftar Cron Job Pengingat Tagihan ---"
+                crontab -l 2>/dev/null | grep kost_slebew.sh || echo "Tidak ada cron aktif."
+                echo ""
+                read -p "Tekan ENTER untuk kembali..."
+                ;;
+
+            2)
+                read -p "Masukkan Jam (0-23): " jam
+                read -p "Masukkan Menit (0-59): " menit
+
+                if [[ ! "$jam" =~ ^[0-9]+$ || ! "$menit" =~ ^[0-9]+$ ]]; then
+                    echo "Input harus angka!"
+                    read
+                    continue
+                fi
+
+                crontab -l 2>/dev/null | grep -v kost_slebew.sh > temp_cron
+
+                echo "$menit $jam * * * $BASE_DIR/kost_slebew.sh --check-tagihan" >> temp_cron
+
+                crontab temp_cron
+                rm temp_cron
+
+                echo ""
+                echo "[âœ“] Cron job berhasil ditambahkan!"
+                read -p "Tekan ENTER..."
+                ;;
+
+            3)
+                crontab -l 2>/dev/null | grep -v kost_slebew.sh > temp_cron
+                crontab temp_cron
+                rm temp_cron
+
+                echo ""
+                echo "[âœ“] Cron job pengingat tagihan berhasil dihapus."
+                read -p "Tekan ENTER..."
+                ;;
+
+            4)
+                break
+                ;;
+
+            *)
+                echo "Pilihan tidak valid!"
+                sleep 1
+                ;;
+        esac
+    done
+}
+```
