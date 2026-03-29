@@ -146,6 +146,8 @@ else if (mode=="e") {
 ```
 ### Output:
 ![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG_20260329_194649.jpg)
+### Kendala:
+* Output jumlah gerbong kereta yang tidak sesuai dengan aslinya.
 
 ## Soal 2
 Pada soal ini kita diperintahkan untuk mencari sebuah koordinat suatu pusakan peninggalan mendiang paman Mas Amba.
@@ -246,6 +248,10 @@ cat posisipusaka.txt
 ```
 Output-nya:
 `Koordinat pusaka: (-7.92898, 112.45)`
+
+### Kendala:
+* Ketika mengunduh pdf nya.
+
 
 ## Soal 3
 Di soal ini kita membantu Mas Amba mengelola kos milik pamannya, Mas Amba bertekad menciptakan program manajemen kost berbasis CLI interaktif menggunakan Bash script dan bantuan command `awk`.
@@ -485,4 +491,7 @@ cron_menu() {
 ![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0010.jpg)
 ![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0011.jpg)
 ![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0014.jpg)
-![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0010.jpg)
+
+### Kendala:
+* Code yang terlalu banyak dan cukup rumit.
+* Kendala dibagian crontab
