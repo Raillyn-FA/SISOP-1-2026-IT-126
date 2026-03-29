@@ -319,3 +319,36 @@ hapus() {
     read -p "Enter..."
 }
 ```
+#### 3. Untuk menampilkan penghuni yang ada.
+```Bash
+tampil() {
+    clear
+
+    if [ ! -s "$DATA" ]; then
+        echo "Belum ada data penghuni."
+        read -p "Enter..."
+        return
+    fi
+    
+    echo "=============================================="
+    echo "   DAFTAR PENGHUNI KOST SLEBEW"
+    echo "=============================================="
+
+    printf "%-3s %-15s %-6s %-12s %-10s\n" "No" "Nama" "Kamar" "Harga" "Status"
+    echo "----------------------------------------------"
+
+    awk -F, '{
+        printf "%-3d %-15s %-6s Rp%-10s %-10s\n", NR,$1,$2,$3,$4
+        total++
+        if ($4=="Aktif") aktif++
+        else menunggak++
+    }
+    END {
+        print "----------------------------------------------"
+        printf "Total: %d | Aktif: %d | Menunggak: %d\n", total, aktif, menunggak
+    }' "$DATA"
+
+    echo "=============================================="
+    read -p "Enter..."
+}
+```
