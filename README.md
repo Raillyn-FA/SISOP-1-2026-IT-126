@@ -480,3 +480,5 @@ cron_menu() {
     done
 }
 ```
+### Output:
+![alt text](https://github.com/Raillyn-FA/SISOP-1-2026-IT-126/blob/main/assets/IMG-20260329-WA0009.jpg)
