@@ -352,3 +352,33 @@ tampil() {
     read -p "Enter..."
 }
 ```
+#### 4. Untuk memperbarui penghuni kos sudah membayar atau masih menunggak
+```Bash
+update() {
+    clear
+    echo "===== UPDATE STATUS ====="
+
+    read -p "Nama: " nama
+
+    while true; do
+        read -p "Status baru (Aktif/Menunggak): " status
+        if [[ "$status" =~ ^(Aktif|Menunggak)$ ]]; then
+            break
+        else
+            echo "Status harus Aktif/Menunggak!"
+        fi
+    done
+
+    awk -F, -v n="$nama" -v s="$status" '
+    BEGIN {OFS=","}
+    {
+        if (tolower($1)==tolower(n)) $4=s
+        print
+    }' "$DATA" > temp.csv
+
+    mv temp.csv "$DATA"
+
+    echo "[âœ“] Status diperbarui!"
+    read -p "Enter..."
+}
+```
